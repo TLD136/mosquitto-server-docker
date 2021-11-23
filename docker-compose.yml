@@ -1,0 +1,14 @@
+
+services:
+  mosquitto:
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t  deze twee zijn zodat je toegang kan krijgen tot de shell.
+    image: eclipse-mosquitto:latest
+    volumes:
+    - ./config:/mosquitto/config
+    - ./data:/mosquitto/data
+    - ./log:/mosquitto/log
+
+    ports:
+    - 1883:1883
+    - 9001:9001
